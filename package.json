@@ -1,0 +1,31 @@
+{
+  "name": "@visionz/starter-collection",
+  "version": "1.0.0",
+  "scripts": {
+    "exec": "ts-node"
+  },
+  "prettier": {
+    "printWidth": 100
+  },
+  "engines": {
+    "npm": ">=10",
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.3.102",
+    "@types/luxon": "^3.3.7",
+    "@types/node": "^20.10.6",
+    "@types/uuid": "^9.0.7",
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+
+  "dependencies": {
+    "@faker-js/faker": "^8.3.1",
+    "axios": "^1.6.3",
+    "luxon": "^3.4.4",
+    "uuid": "^9.0.1"
+  }
+}

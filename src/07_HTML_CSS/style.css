@@ -1,0 +1,236 @@
+:root {
+  --color-white: #fff;
+  --color-black: #444444;
+  --color-grey-dark: #b8b8b8;
+  --color-grey-light: #c8c8c8;
+  --color-pink: #f48a88;
+  --color-pink-light: #ffc0c0;
+
+  --font-title: 2rem;   /* 32 */
+  --font-xlarge: 1.5rem;   /* 24 */
+  --font-large: 1.2rem;   /* 19.2 */
+  --font-normal: 1rem;   /* 16 */
+  --font-small:0.9rem;   /* 14.4 */
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 16px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+	vertical-align: baseline;
+  box-sizing: border-box;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+input, button {
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+  cursor: pointer;
+  font-size: var(--font-normal);
+}
+
+.hidden {
+  line-height: 0;
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+
+
+/* content */
+.wrap {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.wrap::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #efefef;
+  z-index: -99;
+}
+
+.calendar-wrap {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+}
+
+/* schedule */
+.schedule {
+  flex-basis: 34%;
+  padding: 3rem;
+  background-color: var(--color-pink);
+}
+
+.today-title {
+  margin-bottom: 2.5rem;
+  font-size: var(--font-title);
+  color: var(--color-white);
+  font-weight: 300;
+  letter-spacing: -1px;
+}
+
+.schedule-new {
+  display: flex;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--color-pink-light);
+}
+
+.schedule-new .schedule-input {
+  flex-grow: 1;
+  font-weight: 300;
+  line-height: 2rem;
+  color: var(--color-white);
+}
+
+.schedule-new .schedule-input::placeholder {
+  color: var(--color-pink-light);
+}
+
+.schedule-new .schedule-add-btn {
+  flex-basis: 2rem;
+  font-size: var(--font-xlarge);
+  color: var(--color-pink-light);
+}
+
+.schedule-item {
+  display: flex;
+}
+
+.schedule-item + .schedule-item {
+  margin-top: .5rem;
+}
+
+.schedule-item .schedule-content {
+  flex-grow: 1;
+  line-height: 1.5rem;
+  color: var(--color-white);
+}
+
+.schedule-item .schedule-delete {
+  flex-basis: 2rem;
+  font-size: var(--font-large);
+  color: var(--color-pink-light);
+}
+
+/* calendar */
+.calendar {
+  flex-basis: 66%;
+  padding: 3rem;
+  background-color: var(--color-white);
+}
+
+.year-title {
+  margin-bottom: 4.5rem;
+  text-align: right;
+  font-weight: 400;
+  font-size: var(--font-title);
+  color: var(--color-grey-dark);
+  letter-spacing: -1px;
+}
+
+/* month list */
+.month-list {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.month-name .month-btn {
+  font-size: var(--font-small);
+  color: var(--color-grey-dark);
+}
+
+.month-name .month-btn.this-month {
+  color:var(--color-black);
+}
+
+/* calendar table */
+.calendar-header {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.day-name {
+  flex-basis: calc(100% / 7);
+  font-size: var(--font-normal);
+  color: var(--color-black);
+  text-align: center;
+}
+
+.calendar-body {
+  display: flex;
+  justify-content:start;
+  flex-wrap: wrap;
+}
+
+.calendar-body .date-number {
+  flex-basis: calc(100% / 7);
+  flex-grow: 0;
+  flex-shrink: 1;
+  line-height: 3rem;
+  text-align: center;
+}
+
+.calendar-body .date-number .date-btn {
+  position: relative;
+  font-size: var(--font-normal);
+  z-index: 1;
+}
+
+.calendar-body .date-number .date-btn.holiday {
+  color: var(--color-pink);
+}
+
+.calendar-body .date-number .date-btn.today {
+  color: var(--color-white);
+}
+
+.calendar-body .date-number .date-btn.today::before {
+  position: absolute;
+  content: '';
+  display: block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 8px;
+  background-color: var(--color-pink);
+  z-index: -1;
+}
